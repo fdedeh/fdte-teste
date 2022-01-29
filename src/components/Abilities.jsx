@@ -5,9 +5,9 @@ const Abilities = ({ list }) => {
     <div className="abilities">
       {list.map((item, index) => {
         return index === list.length - 1 ? (
-          <span>{item.ability.name}</span>
+          <span key={index}>{item.ability.name}</span>
         ) : (
-          <span>{`${item.ability.name},`}</span>
+          <span key={index}>{`${item.ability.name},`}</span>
         );
       })}
     </div>

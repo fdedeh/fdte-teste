@@ -6,7 +6,7 @@ import PokeTypes from "./PokeTypes";
 import Abilities from "./Abilities";
 import PokeBall from "./PokeBall";
 
-const CatchModal = ({ pokemon }) => {
+const CatchModal = ({ pokemon, catchPokemon }) => {
   return (
     <div className="catchModal">
       <div className="catchModal__main">
@@ -21,7 +21,7 @@ const CatchModal = ({ pokemon }) => {
         <PokeTypes types={pokemon.types} />
         <Separator title="HABILIDADES" />
         <Abilities list={pokemon.abilities} />
-        <PokeBall capture={() => console.log("catch!!")} />
+        <PokeBall capture={catchPokemon} />
       </div>
     </div>
   );

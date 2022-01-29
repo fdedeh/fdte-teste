@@ -8,6 +8,8 @@ import tooltipError from "../assets/images/tooltipError.png";
 import useFetchRandomPokemon from "../hooks/useFetchRandomPokemon";
 import Modal from "./Modal";
 import CatchModal from "./CatchModal";
+import { useSelector, useDispatch } from "react-redux";
+import { add } from "../reducers/pokeReducer";
 
 const Player = () => {
   const [hoverRef, isHovered] = useHover();
@@ -17,12 +19,18 @@ const Player = () => {
   const [catchModal, setCatchModal] = useState(false);
   const [dataState, fetchDataFromApi] = useFetchRandomPokemon();
 
+  const pokemons = useSelector((state) => state.pokedex.pokemons);
+  const dispatch = useDispatch();
+
   useEffect(() => {
     if (captura) {
-      setTooltip(searchingTooltip);
-      fetchDataFromApi();
+      if (pokemons.length < 6) {
+        setTooltip(searchingTooltip);
+        fetchDataFromApi();
+      } else {
+        setTooltip(tooltipError);
+      }
     } else {
-      //checa qtde de pokemon pra setar tooltip padrão
       setTooltip(searchTooltip);
     }
   }, [captura]);
@@ -33,19 +41,31 @@ const Player = () => {
         setPokemon(dataState.data);
         setCatchModal(true);
         setCaptura(false);
-      }, 1400);
+      }, 400);
     }
   }, [dataState.isFetching]);
+
+  const catchPokemon = () => {
+    dispatch(add(pokemon));
+    setCatchModal(false);
+    if (pokemons.length >= 5) {
+      setCaptura(true);
+    }
+  };
 
   return (
     <>
       <div className="player" onClick={() => setCaptura(true)} ref={hoverRef}>
         {(isHovered || captura) && <Tooltip tooltip={tooltip} />}
-        {!captura && <div className="playerCharFront"></div>}
-        {captura && <div className="playerCharRun"></div>}
+        {(!captura || tooltip == tooltipError) && (
+          <div className="playerCharFront"></div>
+        )}
+        {captura && tooltip !== tooltipError && (
+          <div className="playerCharRun"></div>
+        )}
       </div>
       <Modal show={catchModal} dismiss={() => setCatchModal(false)}>
-        <CatchModal pokemon={pokemon} />
+        <CatchModal pokemon={pokemon} catchPokemon={catchPokemon} />
       </Modal>
     </>
   );

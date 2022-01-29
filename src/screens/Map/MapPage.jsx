@@ -1,7 +1,5 @@
 import React from "react";
 import Sidebar from "../../components/Sidebar";
-
-import Modal from "../../components/Modal";
 import Player from "../../components/Player";
 
 const MapPage = () => {
