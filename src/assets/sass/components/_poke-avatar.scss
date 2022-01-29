@@ -1,0 +1,15 @@
+.poke-avatar {
+  width: 240px;
+  height: 240px;
+  border-radius: 1000px;
+  border: 4px solid $color-primary-default;
+  background: $color-neutral;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}

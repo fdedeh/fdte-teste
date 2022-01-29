@@ -1,0 +1,28 @@
+.catchModal {
+  width: 350px;
+  max-height: 72vh;
+  padding-top: 150px;
+  margin-top: -48px;
+  background: $color-home-gradient-1;
+  background: linear-gradient(
+    90deg,
+    $color-home-gradient-1 0%,
+    $color-home-gradient-2 100%
+  );
+
+  &__main {
+    background-color: $color-neutral;
+    border-radius: 20px;
+    padding: 30px;
+    height: 500px;
+  }
+
+  &__name {
+    color: $color-neutral-700;
+    margin-top: 150px;
+    text-align: center;
+    font-size: 150%;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+}

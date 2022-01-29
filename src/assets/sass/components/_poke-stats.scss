@@ -1,0 +1,27 @@
+.poke-stats {
+  color: $color-neutral-700;
+  display: flex;
+  margin-top: 50px;
+  justify-content: space-around;
+
+  & div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 150%;
+    padding: 0px 30px;
+  }
+
+  & div:nth-child(2n) {
+    border-right: 1px solid $color-neutral-500;
+    border-left: 1px solid $color-neutral-500;
+  }
+
+  & div span {
+    font-weight: 700;
+  }
+  & div span:nth-child(1) {
+    font-size: 75%;
+    padding-bottom: 10px;
+  }
+}
