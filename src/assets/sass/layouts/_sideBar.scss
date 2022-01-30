@@ -25,7 +25,7 @@
     overflow: hidden;
 
     &:hover {
-      background-color: darken($color-primary-dark, 0.25);
+      background-color: darken($color-primary-dark, 0.1);
       color: $color-primary-default;
     }
 

@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { useEffect } from "react/cjs/react.development";
+import React, { useState, useEffect } from "react";
 import useHover from "../hooks/useHover";
 import Tooltip from "./Tooltip";
 import searchTooltip from "../assets/images/searchTooltip.png";
@@ -24,16 +23,20 @@ const Player = () => {
 
   useEffect(() => {
     if (captura) {
-      if (pokemons.length < 6) {
+      if (pokemons.length < 3) {
         setTooltip(searchingTooltip);
         fetchDataFromApi();
       } else {
-        setTooltip(tooltipError);
+        setCaptura(false);
       }
     } else {
-      setTooltip(searchTooltip);
+      checkTooltip();
     }
   }, [captura]);
+
+  useEffect(() => {
+    checkTooltip();
+  }, [pokemons]);
 
   useEffect(() => {
     if (!dataState.isFetching && captura) {
@@ -48,9 +51,11 @@ const Player = () => {
   const catchPokemon = () => {
     dispatch(add(pokemon));
     setCatchModal(false);
-    if (pokemons.length >= 5) {
-      setCaptura(true);
-    }
+    setPokemon({});
+  };
+
+  const checkTooltip = () => {
+    pokemons.length < 3 ? setTooltip(searchTooltip) : setTooltip(tooltipError);
   };
 
   return (

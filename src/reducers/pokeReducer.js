@@ -9,8 +9,10 @@ export const pokeReducer = createSlice({
     add: (state, pokemon) => {
       state.pokemons.push(pokemon.payload);
     },
-    remove: (state) => {
-      state.value -= 1;
+    remove: (state, id) => {
+      state.pokemons.map((poke, index) => {
+        if (poke.id == id.payload) state.pokemons.splice(index, 1);
+      });
     },
     get: (state) => {
       return state.pokemons.length;
@@ -18,7 +20,6 @@ export const pokeReducer = createSlice({
   },
 });
 
-// Action creators are generated for each case reducer function
-export const { add, decrement, incrementByAmount } = pokeReducer.actions;
+export const { add, remove, get } = pokeReducer.actions;
 
 export default pokeReducer.reducer;

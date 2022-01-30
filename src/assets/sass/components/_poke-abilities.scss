@@ -1,8 +1,11 @@
-.abilities {
+.poke-abilities {
   display: flex;
   justify-content: center;
-  padding-bottom: 50px;
   text-transform: uppercase;
+
+  &.last {
+    padding-bottom: 50px;
+  }
 
   & span {
     font-size: 100%;

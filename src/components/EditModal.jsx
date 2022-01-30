@@ -1,12 +1,13 @@
 import React from "react";
-import PokeStats from "./PokeStats";
 import PokeAvatar from "./PokeAvatar";
+import PokeStats from "./PokeStats";
 import Separator from "./Separator";
 import PokeTypes from "./PokeTypes";
 import PokeAbilities from "./PokeAbilities";
-import PokeBall from "./PokeBall";
+import ReleaseButton from "./ReleaseButton";
+import PokeFullStats from "./PokeFullStats";
 
-const CatchModal = ({ pokemon, catchPokemon }) => {
+const EditModal = ({ pokemon, removePokemon }) => {
   return (
     <div className="catchModal">
       <div className="catchModal__main">
@@ -20,11 +21,13 @@ const CatchModal = ({ pokemon, catchPokemon }) => {
         <Separator title="TIPO" />
         <PokeTypes types={pokemon.types} />
         <Separator title="HABILIDADES" />
-        <PokeAbilities list={pokemon.abilities} last={true} />
-        <PokeBall capture={catchPokemon} />
+        <PokeAbilities list={pokemon.abilities} />
+        <Separator title="ESTATÍSTICAS" />
+        <PokeFullStats list={pokemon.stats} />
+        <ReleaseButton removePokemon={removePokemon} />
       </div>
     </div>
   );
 };
 
-export default CatchModal;
+export default EditModal;

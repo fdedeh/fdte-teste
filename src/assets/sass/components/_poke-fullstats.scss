@@ -1,0 +1,45 @@
+.poke-fullStats {
+  padding-bottom: 50px;
+
+  & div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  & div div:last-child {
+    font-size: 125%;
+    font-weight: 300;
+  }
+
+  & div .def::before {
+    content: "";
+    background: url("../../images/shield.png");
+    background-repeat: no-repeat;
+    width: 18px;
+    height: 18px;
+    padding-right: 5px;
+  }
+
+  & div .atk::before {
+    content: "";
+    background: url("../../images/sword.png");
+    background-repeat: no-repeat;
+    width: 18px;
+    height: 18px;
+    padding-right: 5px;
+  }
+
+  & div .spd::before {
+    content: "";
+    background: url("../../images/speed.png");
+    background-repeat: no-repeat;
+    width: 18px;
+    height: 18px;
+    padding-right: 5px;
+  }
+}

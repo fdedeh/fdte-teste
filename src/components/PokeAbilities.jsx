@@ -1,8 +1,8 @@
 import React from "react";
 
-const Abilities = ({ list }) => {
+const PokeAbilities = ({ list, last = false }) => {
   return (
-    <div className="abilities">
+    <div className={`poke-abilities ${last ? "last" : null}`}>
       {list.map((item, index) => {
         return index === list.length - 1 ? (
           <span key={index}>{item.ability.name}</span>
@@ -14,4 +14,4 @@ const Abilities = ({ list }) => {
   );
 };
 
-export default Abilities;
+export default PokeAbilities;

@@ -1,8 +1,8 @@
 import React from "react";
 
-const MiniAvatarSidebar = ({ pokemon }) => {
+const MiniAvatarSidebar = ({ pokemon, showModal }) => {
   return (
-    <div className="sidebar__item">
+    <div className="sidebar__item" onClick={() => showModal(pokemon)}>
       <div
         className="sidebar__avatar"
         style={{
