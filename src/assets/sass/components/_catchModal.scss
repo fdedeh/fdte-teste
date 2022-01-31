@@ -25,4 +25,24 @@
     font-weight: 700;
     text-transform: uppercase;
   }
+
+  &__submit {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .catchModal {
+    width: 100vw;
+    max-height: 100vh;
+    &__main {
+      font-size: 150%;
+      height: 100vh;
+    }
+    &__name {
+      font-size: 200%;
+    }
+  }
 }

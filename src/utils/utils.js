@@ -38,3 +38,31 @@ export const translateType = (type) => {
       return type;
   }
 };
+
+export const TYPES_SELECT = [
+  { value: "bug", text: "inseto" },
+  { value: "dark", text: "noturno" },
+  { value: "dragon", text: "dragão" },
+  { value: "electric", text: "elétrico" },
+  { value: "fairy", text: "fada" },
+  { value: "fire", text: "fogo" },
+  { value: "fighting", text: "lutador" },
+  { value: "flying", text: "voador" },
+  { value: "grass", text: "planta" },
+  { value: "ghost", text: "fantasma" },
+  { value: "ground", text: "terra" },
+  { value: "ice", text: "gelo" },
+  { value: "normal", text: "normal" },
+  { value: "poison", text: "veneno" },
+  { value: "psychic", text: "psíquico" },
+  { value: "rock", text: "pedra" },
+  { value: "steel", text: "aço" },
+  { value: "water", text: "água" },
+];
+
+export const MAX_POKEMONS = 6;
+export const REQUIRED_MSG = "Este campo é obrigatório!";
+
+export const randomInteger = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};

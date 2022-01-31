@@ -16,3 +16,16 @@
     opacity: 1;
   }
 }
+
+@media screen and (max-width: 1199px) {
+  .tooltip {
+    top: -8rem;
+    left: -5px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .tooltip {
+    top: -10rem;
+    left: -10px;
+  }
+}

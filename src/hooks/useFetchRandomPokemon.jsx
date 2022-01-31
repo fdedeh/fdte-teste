@@ -1,11 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
+import { randomInteger } from "../utils/utils";
 
 const API = "https://pokeapi.co/api/v2/pokemon/";
-
-const randomInteger = (min, max) => {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
 
 const useFetchRandomPokemon = () => {
   const [dataState, setDataState] = useState({ data: [], isFetching: false });

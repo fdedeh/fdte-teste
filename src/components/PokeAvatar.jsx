@@ -1,9 +1,9 @@
 import React from "react";
 
-const PokeAvatar = ({ img }) => {
+const PokeAvatar = ({ img, className }) => {
   return (
     <div
-      className="poke-avatar"
+      className={`poke-avatar ${className}`}
       style={{
         backgroundImage: `url("${img}")`,
       }}

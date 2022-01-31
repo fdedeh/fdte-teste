@@ -1,19 +1,20 @@
 import React, { useState } from "react";
-import Button from "./Button";
-import plusIcon from "../assets/images/plus.png";
 import MiniAvatarSidebar from "./MiniAvatarSidebar";
 import EditModal from "./EditModal";
 import Modal from "./Modal";
 import { useSelector, useDispatch } from "react-redux";
 import { remove } from "../reducers/pokeReducer";
+import AddPokemonButton from "./AddPokemonButton";
+import CreateModal from "./CreateModal";
 
 const Sidebar = () => {
   const [editModal, setEditModal] = useState(false);
+  const [createModal, setCreateModal] = useState(false);
   const [pokemon, setPokemon] = useState({});
   const pokemons = useSelector((state) => state.pokedex.pokemons);
   const dispatch = useDispatch();
 
-  const showModal = (poke) => {
+  const showPokeModal = (poke) => {
     setPokemon(poke);
     setEditModal(true);
   };
@@ -27,14 +28,19 @@ const Sidebar = () => {
     <div className="sidebar">
       {pokemons.map((poke, index) => {
         return (
-          <MiniAvatarSidebar pokemon={poke} showModal={showModal} key={index} />
+          <MiniAvatarSidebar
+            pokemon={poke}
+            showModal={showPokeModal}
+            key={index}
+          />
         );
       })}
-      <Button
-        icon={<img src={plusIcon} alt="+" disabled={pokemons.lenght > 5} />}
-      />
+      <AddPokemonButton showModal={() => setCreateModal(true)} />
       <Modal show={editModal} dismiss={() => setEditModal(false)}>
         <EditModal pokemon={pokemon} removePokemon={removePokemon} />
+      </Modal>
+      <Modal show={createModal} dismiss={() => setCreateModal(false)}>
+        <CreateModal dismiss={() => setCreateModal(false)} />
       </Modal>
     </div>
   );

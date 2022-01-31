@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# Teste para vaga Frontend React - FDTE
+
+Projeto para avaliação de conhecimentos e técnicas de programação.
+
+## Instruções
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

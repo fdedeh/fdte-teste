@@ -37,3 +37,24 @@
     background-position: -285px;
   }
 }
+
+@media screen and (max-width: 1199px) {
+  @keyframes sprite {
+    from {
+      background-position: 0px;
+    }
+    to {
+      background-position: -210px;
+    }
+  }
+}
+@media screen and (max-width: 767px) {
+  @keyframes sprite {
+    from {
+      background-position: 0px;
+    }
+    to {
+      background-position: -190px;
+    }
+  }
+}

@@ -9,6 +9,7 @@ import Modal from "./Modal";
 import CatchModal from "./CatchModal";
 import { useSelector, useDispatch } from "react-redux";
 import { add } from "../reducers/pokeReducer";
+import { MAX_POKEMONS } from "../utils/utils";
 
 const Player = () => {
   const [hoverRef, isHovered] = useHover();
@@ -23,7 +24,7 @@ const Player = () => {
 
   useEffect(() => {
     if (captura) {
-      if (pokemons.length < 3) {
+      if (pokemons.length < MAX_POKEMONS) {
         setTooltip(searchingTooltip);
         fetchDataFromApi();
       } else {
@@ -44,7 +45,7 @@ const Player = () => {
         setPokemon(dataState.data);
         setCatchModal(true);
         setCaptura(false);
-      }, 400);
+      }, 1200);
     }
   }, [dataState.isFetching]);
 
@@ -55,7 +56,9 @@ const Player = () => {
   };
 
   const checkTooltip = () => {
-    pokemons.length < 3 ? setTooltip(searchTooltip) : setTooltip(tooltipError);
+    pokemons.length < MAX_POKEMONS
+      ? setTooltip(searchTooltip)
+      : setTooltip(tooltipError);
   };
 
   return (
